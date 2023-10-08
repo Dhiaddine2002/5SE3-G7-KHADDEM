@@ -9,6 +9,7 @@ import tn.esprit.spring.khaddem.services.IEtudiantService;
 
 import java.util.List;
 
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/etudiant")
 
