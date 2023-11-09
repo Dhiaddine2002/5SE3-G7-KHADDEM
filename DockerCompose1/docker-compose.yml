@@ -8,8 +8,8 @@ services:
     volumes:
      - sonarqube-data:/opt/sonarqube1/data
      - sonarqube-logs:/opt/sonarqube1/logs
-    - sonarqube-extensions:/opt/sonarqube1/extensions
-      - ./plugins:/opt/sonarqube/extensions1/plugins
+     - sonarqube-extensions:/opt/sonarqube1/extensions
+     - ./plugins:/opt/sonarqube/extensions1/plugins
 
   nexus:
     image: sonatype/nexus3
