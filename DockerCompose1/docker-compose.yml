@@ -8,7 +8,6 @@ services:
       - sonarnexus_sonarqube-data:/opt/sonarqube/data
       - sonarnexus_sonarqube-logs:/opt/sonarqube/logs
       - sonarnexus_sonarqube-extensions:/opt/sonarqube/extensions
-      - ./plugins:/opt/sonarqube/extensions/plugins
 
   nexus:
     image: sonatype/nexus3
