@@ -6,21 +6,21 @@ services:
       - "9000:9000"
   
     volumes:
-      - sonarqube_data:/opt/sonarqube/data
-      - sonarqube_extensions:/opt/sonarqube/extensions
-      - sonarqube_logs:/opt/sonarqube/logs
-      - sonarqube_temp:/opt/sonarqube/temp
+     - sonarqube-data:/opt/sonarqube1/data
+     - sonarqube-logs:/opt/sonarqube1/logs
+    - sonarqube-extensions:/opt/sonarqube1/extensions
+      - ./plugins:/opt/sonarqube/extensions1/plugins
 
   nexus:
     image: sonatype/nexus3
     ports:
       - "8081:8081"
     volumes:
-      - nexus_data:/nexus-data
+      - nexus_data:/nexus-data1
 
 volumes:
-  sonarqube_data:
-  sonarqube_extensions:
-  sonarqube_logs:
-  sonarqube_temp:
-  nexus_data:
+ sonarqube-data:
+  sonarqube-logs:
+  sonarqube-extensions:
+  nexus-data:
+
