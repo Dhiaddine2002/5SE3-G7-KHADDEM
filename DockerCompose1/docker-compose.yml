@@ -20,7 +20,7 @@ services:
 
 volumes:
  sonarqube-data:
-  sonarqube-logs:
-  sonarqube-extensions:
-  nexus-data:
+ sonarqube-logs:
+ sonarqube-extensions:
+ nexus-data:
 
