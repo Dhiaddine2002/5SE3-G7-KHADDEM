@@ -31,7 +31,7 @@ class DepartementServiceImplTest {
     private DepartementRepository departementRepository;
 
     @Test
-    public void testRetrieveAllDepartements() {
+     void testRetrieveAllDepartements() {
         List<Departement> departements = new ArrayList<>();
         departements.add(new Departement(1, "Departement 1", new ArrayList<>()));
         departements.add(new Departement(2, "Departement 2", new ArrayList<>()));
@@ -43,7 +43,7 @@ class DepartementServiceImplTest {
     }
 
     @Test
-    public void testAddDepartement() {
+     void testAddDepartement() {
         Departement departement = new Departement(1, "Departement 1", new ArrayList<>());
         when(departementRepository.save(departement)).thenReturn(departement);
 
@@ -52,7 +52,7 @@ class DepartementServiceImplTest {
         assertEquals(departement, result);
     }
     @Test
-    public void testUpdateDepartement() {
+     void testUpdateDepartement() {
         Departement departement = new Departement(1, "Departement 1", new ArrayList<>());
         when(departementRepository.save(departement)).thenReturn(departement);
 
@@ -62,7 +62,7 @@ class DepartementServiceImplTest {
     }
 
     @Test
-    public void testRetrieveDepartementsByUniversite() {
+     void testRetrieveDepartementsByUniversite() {
         Integer universiteId = 1;
 
         Universite universite = new Universite();

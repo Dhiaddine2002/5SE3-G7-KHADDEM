@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  mysql:
+    image: mysql:latest
+    container_name: mysql-container
+    networks:
+      - mysqlnetwork
+    environment:
+      MYSQL_ROOT_PASSWORD: 's!fK/O50tJrap.KN'
+
+  kaddem:
+    image: dhiaddine/khaddem:latest
+    container_name: kaddem-container
+    networks:
+      - mysqlnetwork
+    ports:
+      - "8089:8089"
+
+  angular-app:
+    image: dhiaddine/angular:latest
+    container_name: angular-app-container
+    ports:
+      - "4200:4200"
+
+networks:
+  mysqlnetwork:
