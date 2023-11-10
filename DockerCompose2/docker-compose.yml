@@ -10,7 +10,7 @@ services:
       MYSQL_ROOT_PASSWORD: 's!fK/O50tJrap.KN'
 
   kaddem:
-    image: dhiaddine/testimage:latest
+    image: dhiaddine/khaddem:latest
     container_name: kaddem-container
     networks:
       - mysqlnetwork
