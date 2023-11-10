@@ -15,7 +15,7 @@ services:
     networks:
       - mysqlnetwork
     ports:
-      - "8090:8089"
+      - "8089:8089"
 
   angular-app:
     image: dhiaddine/angular:latest
