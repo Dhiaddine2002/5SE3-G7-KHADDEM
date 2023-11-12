@@ -48,6 +48,7 @@
     </dependencies>
 
     <build>
+		<finalName>5SE3-G7-KHADDEM</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
