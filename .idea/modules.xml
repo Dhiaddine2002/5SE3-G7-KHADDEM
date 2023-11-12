@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/5SE3-G7-KHADDEM.iml" filepath="$PROJECT_DIR$/.idea/5SE3-G7-KHADDEM.iml" />
+      <module fileurl="file://$PROJECT_DIR$/khaddem/khaddem.iml" filepath="$PROJECT_DIR$/khaddem/khaddem.iml" />
+    </modules>
+  </component>
+</project>

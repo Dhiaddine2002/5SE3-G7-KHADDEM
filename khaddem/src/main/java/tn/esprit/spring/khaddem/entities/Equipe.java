@@ -30,4 +30,6 @@ public class Equipe  implements Serializable {
     private List<Etudiant> etudiants;
     @OneToOne(cascade = CascadeType.ALL)
     private DetailEquipe detailEquipe;
+
+
 }
