@@ -65,5 +65,5 @@ public class EquipeServiceImplTest {
 
         assertEquals(equipe, result);
     }
-    
+
 }
