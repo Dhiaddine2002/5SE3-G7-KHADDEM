@@ -10,6 +10,6 @@ RUN touch testing
 # Download the JAR from Nexus and copy it into the container
 RUN wget -O /app/kaddem-1.0.jar $NEXUS_URL/$ARTIFACT_PATH
 
-EXPOSE 8082
+EXPOSE 8089
 
 ENTRYPOINT ["java", "-jar", "/app/kaddem-1.0.jar"]
