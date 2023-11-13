@@ -8,6 +8,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -23,6 +24,6 @@ public class Departement implements Serializable {
     private String nomDepart;
     @OneToMany(mappedBy = "departement")
     @JsonIgnore
-    private List<Etudiant> etudiants;
+    private List<Etudiant> etudiants = new ArrayList<>();
 
 }

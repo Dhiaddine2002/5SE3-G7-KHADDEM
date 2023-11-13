@@ -12,7 +12,9 @@ import tn.esprit.spring.khaddem.repositories.EtudiantRepository;
 
 import javax.transaction.Transactional;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Slf4j
@@ -85,28 +87,35 @@ public class EtudiantServiceImpl implements IEtudiantService{
     public Etudiant addAndAssignEtudiantToEquipeAndContract(Etudiant e, Integer idContrat, Integer idEquipe) {
         Contrat contrat = contratRepository.findById(idContrat).get();
         Equipe equipe=equipeRepository.findById(idEquipe).get();
-        Etudiant etudiant= etudiantRepository.save(e);
-        log.info("contrat: "+contrat.getSpecialite());
-        log.info("equipe: "+equipe.getNomEquipe());
-        log.info("etudiant: "+etudiant.getNomE()+" "+etudiant.getPrenomE()+" "+etudiant.getOp());
+        Etudiant etudiant= etudiantRepository.findById(e.getIdEtudiant()).get();
+
         List<Equipe> equipesMisesAjour = new ArrayList<>();
-        contrat.setEtudiant(etudiant);
+
+        contratRepository.save(contrat);
         if(etudiant.getEquipes()!=null) {
             equipesMisesAjour=etudiant.getEquipes();
         }
         equipesMisesAjour.add(equipe);
-        log.info("taille apres ajout : "+equipesMisesAjour.size());
         etudiant.setEquipes(equipesMisesAjour);
+        contrat.setEtudiant(etudiant);
+        etudiantRepository.save(etudiant);
+        contratRepository.save(contrat);
 
-
-        return e;
+        return etudiant;
     }
 
     @Override
     public List<Etudiant> getEtudiantsByDepartement(Integer idDepartement) {
-        Departement departement=departementRepository.findById(idDepartement).get();
-        return departement.getEtudiants();
+        Optional<Departement> optionalDepartement = departementRepository.findById(idDepartement);
+
+        if (optionalDepartement.isPresent()) {
+            Departement departement = optionalDepartement.get();
+            return departement.getEtudiants();
+        } else {
+            return Collections.emptyList();
+        }
     }
+
 
 
 }

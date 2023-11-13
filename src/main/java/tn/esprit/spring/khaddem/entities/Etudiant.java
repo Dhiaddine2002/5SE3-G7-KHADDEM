@@ -9,6 +9,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -116,7 +117,7 @@ public class Etudiant  implements Serializable {
     private List<Equipe> equipes;
     @OneToMany(mappedBy = "etudiant")
     @JsonIgnore
-    private List<Contrat> contrats;
+    private List<Contrat> contrats = new ArrayList<>();
 
 
 
