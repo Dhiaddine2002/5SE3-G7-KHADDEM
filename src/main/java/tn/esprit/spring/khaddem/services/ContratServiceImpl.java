@@ -39,7 +39,7 @@ public class ContratServiceImpl implements  IContratService{
     @Override
     public Contrat retrieveContrat(Integer idContrat) {
         log.info("debut methode retrieveContrat");
-        return contratRepository.findById(idContrat).get();
+        return contratRepository.findById(idContrat).orElse(null);
     }
 
     @Override
@@ -125,7 +125,7 @@ public class ContratServiceImpl implements  IContratService{
         }
     }
     public float getChiffreAffaireEntreDeuxDates(Date startDate, Date endDate){
-        float difference_In_Time = endDate.getTime() - startDate.getTime();
+        float difference_In_Time = (float) endDate.getTime() - startDate.getTime();
         float difference_In_Days = (difference_In_Time / (1000 * 60 * 60 * 24)) % 365;
         float difference_In_months =difference_In_Days/30;
         List<Contrat> contrats=contratRepository.findAll();

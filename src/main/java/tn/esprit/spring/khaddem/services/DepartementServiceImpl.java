@@ -7,6 +7,7 @@ import tn.esprit.spring.khaddem.entities.Universite;
 import tn.esprit.spring.khaddem.repositories.DepartementRepository;
 import tn.esprit.spring.khaddem.repositories.UniversiteRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -34,12 +35,12 @@ public class DepartementServiceImpl implements IDepartementService{
 
     @Override
     public Departement retrieveDepartement(Integer idDepart) {
-        return departementRepository.findById(idDepart).get();
+        return departementRepository.findById(idDepart).orElse(new Departement());
     }
 
     @Override
     public List<Departement> retrieveDepartementsByUniversite(Integer idUniversite) {
-        Universite universite = universiteRepository.findById(idUniversite).get();
+        Universite universite = universiteRepository.findById(idUniversite).orElse(new Universite());
         return universite.getDepartements();
     }
 }
