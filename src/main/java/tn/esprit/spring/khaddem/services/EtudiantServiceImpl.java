@@ -87,7 +87,9 @@ public class EtudiantServiceImpl implements IEtudiantService{
     public Etudiant addAndAssignEtudiantToEquipeAndContract(Etudiant e, Integer idContrat, Integer idEquipe) {
         Contrat contrat = contratRepository.findById(idContrat).get();
         Equipe equipe=equipeRepository.findById(idEquipe).get();
-        Etudiant etudiant= etudiantRepository.findById(e.getIdEtudiant()).get();
+
+        Optional<Etudiant> etudiantOptional= etudiantRepository.findById(e.getIdEtudiant());
+        Etudiant etudiant = etudiantOptional.orElse(e);
 
         List<Equipe> equipesMisesAjour = new ArrayList<>();
 
