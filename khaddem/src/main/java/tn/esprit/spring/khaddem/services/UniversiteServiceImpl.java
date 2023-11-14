@@ -51,17 +51,10 @@ public class UniversiteServiceImpl implements  IUniversiteService{
 
     @Transactional
     public void assignUniversiteToDepartement(Integer universiteId, Integer departementId) {
-        Optional<Universite> optionalUniversite = universiteRepository.findById(universiteId);
-        Optional<Departement> optionalDepartement = departementRepository.findById(departementId);
-
-        if (optionalUniversite.isPresent() && optionalDepartement.isPresent()) {
-            Universite universite = optionalUniversite.get();
-            Departement departement = optionalDepartement.get();
-
-            universite.getDepartements().add(departement);
-        } else {
-            log.error("Cannot assign Universite to Departement. Universite or Departement not found.");
-        }
+        Universite universite =universiteRepository.findById(universiteId).get();
+        Departement departement=departementRepository.findById(departementId).get();
+        universite.getDepartements().add(departement);
+        log.info("departements number "+universite.getDepartements().size());
     }
 
 }
