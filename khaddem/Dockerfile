@@ -2,7 +2,7 @@
 FROM openjdk:11-jre-slim
 
 # Copier le fichier JAR Spring Boot dans le conteneur
-COPY target/khaddem-4.2.jar /app.jar
+COPY target/khaddem-4.2.jar /app/app.jar
 
 # Port exposé par votre application Spring Boot
 EXPOSE 8089
