@@ -59,7 +59,6 @@ public class UniversiteServiceImpl implements  IUniversiteService{
             Departement departement = optionalDepartement.get();
 
             universite.getDepartements().add(departement);
-            log.info("departements number " + universite.getDepartements().size());
         } else {
             log.error("Cannot assign Universite to Departement. Universite or Departement not found.");
         }
